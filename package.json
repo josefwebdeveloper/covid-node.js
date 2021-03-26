@@ -5,7 +5,8 @@
     "license": "MIT",
     "repository": {
         "type": "git",
-        "url": "https://github.com/josefwebdeveloper/letter-to-mother-node.js.git"
+        "urlHeroku": "https://app-covid-21.herokuapp.com/",
+        "git": "https://github.com/josefwebdeveloper/covid-node.js"
     },
     "scripts": {
         "start": "node ./server.js",
