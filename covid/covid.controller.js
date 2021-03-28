@@ -7,6 +7,7 @@ const axios = require('axios');
 router.get('/us/current', getUsCurrent);
 router.get('/states/current', getStatesCurrent);
 router.get('/states/daily', getStatesDaily);
+router.get('/us/daily', getUsDaily);
 // router.get('/getNext/:id', getNext);
 
 // router.put('/:articleId', updateById);
@@ -28,6 +29,20 @@ module.exports = router;
 
 function getUsCurrent(req, res, next) {
     axios.get('http://covidtracking.com/api/us')
+        .then(response => {
+            return response.data ? res.json({
+                data: {
+                    response: response.data,
+                    statusText: response.statusText
+                }
+            }) : res.sendStatus(404)
+        })
+        .catch(error => {
+            return next(error)
+        });
+}
+function getUsDaily(req, res, next) {
+    axios.get('http://covidtracking.com/api/us/daily')
         .then(response => {
             return response.data ? res.json({
                 data: {
