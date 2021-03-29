@@ -2,8 +2,7 @@ const express = require('express');
 const router = express.Router();
 const axios = require('axios');
 
-// router.get('/', getAll);
-// router.post('/create', create);
+
 router.get('/us/current', getUsCurrent);
 router.get('/states/current', getStatesCurrent);
 router.get('/states/daily', getStatesDaily);
@@ -90,11 +89,6 @@ function getStatesCurrent(req, res, next) {
 }
 
 
-function getFirst(req, res, next) {
-    console.log('getFirst contr');
-    articleService.getFirst()
-        .then(article => article ? res.json({data: {article: article}}) : res.sendStatus(404))
-        .catch(err => next(err));
-}
+
 
 
